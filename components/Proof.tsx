@@ -2,7 +2,34 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Quote } from "lucide-react";
+import { Quote, TrendingUp, Clock, Award, ShieldCheck } from "lucide-react";
+
+const stats = [
+  {
+    icon: TrendingUp,
+    value: "+42%",
+    label: "Avg. Conversion Rate Lift",
+    detail: "From targeted CRO audits & UX refinements",
+  },
+  {
+    icon: Clock,
+    value: "2–4 Wks",
+    label: "Fast Turnaround",
+    detail: "From kick-off to a fully operational build",
+  },
+  {
+    icon: Award,
+    value: "10+ Yrs",
+    label: "Shopify Operator Expertise",
+    detail: "Real store scaling, zero agency fluff",
+  },
+  {
+    icon: ShieldCheck,
+    value: "100%",
+    label: "Shopify-Native SEO",
+    detail: "Built for long-term organic compounding",
+  },
+];
 
 const testimonials = [
   {
@@ -26,9 +53,17 @@ const testimonials = [
 ];
 
 function TestimonialCard({
-  quote, name, detail, i, inView,
+  quote,
+  name,
+  detail,
+  i,
+  inView,
 }: {
-  quote: string; name: string; detail: string; i: number; inView: boolean;
+  quote: string;
+  name: string;
+  detail: string;
+  i: number;
+  inView: boolean;
 }) {
   return (
     <motion.div
@@ -86,6 +121,45 @@ export default function Proof() {
           </h2>
         </motion.div>
 
+        {/* ── Key Metrics Strip ── */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          {stats.map((stat, i) => {
+            const Icon = stat.icon;
+            return (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 16 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.05 + i * 0.08, duration: 0.5 }}
+                className="bg-white/80 border border-[#0D0F0D]/6 p-5 rounded-sm flex flex-col justify-between hover:border-[#C9A227]/40 transition-colors duration-200"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span
+                    className="text-[#0D0F0D] font-bold leading-none"
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)",
+                      letterSpacing: "-0.02em",
+                    }}
+                  >
+                    {stat.value}
+                  </span>
+                  <Icon size={16} className="text-[#C9A227]" strokeWidth={1.75} />
+                </div>
+                <div>
+                  <p className="text-[#0D0F0D] font-semibold text-xs tracking-tight mb-1">
+                    {stat.label}
+                  </p>
+                  <p className="text-[#0D0F0D]/40 text-[11px] leading-relaxed">
+                    {stat.detail}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* ── Testimonials Grid ── */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
           {testimonials.map((t, i) => (
             <TestimonialCard key={i} {...t} i={i} inView={inView} />

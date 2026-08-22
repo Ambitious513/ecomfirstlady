@@ -8,6 +8,7 @@ import Process from "@/components/Process";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import MobileStickyCTA from "@/components/MobileStickyCTA";
 
 export default function HomePage() {
   return (
@@ -24,6 +25,7 @@ export default function HomePage() {
         <FinalCTA />
       </main>
       <Footer />
+      <MobileStickyCTA />
     </>
   );
 }

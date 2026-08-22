@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Layers } from "lucide-react";
 
 const strengths = [
   "A decade working inside Shopify stores — not just reading about them",
@@ -13,6 +13,16 @@ const strengths = [
   "Built a reputation inside tight-knit communities where results do the talking",
 ];
 
+const techStack = [
+  "Shopify & Shopify Plus",
+  "Liquid Architecture",
+  "Klaviyo",
+  "Google Analytics 4",
+  "Clarity & Hotjar UX",
+  "Replo & PageFly",
+  "Meta CAPI",
+];
+
 export default function Expertise() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -20,13 +30,13 @@ export default function Expertise() {
   return (
     <section
       id="about"
-      className="bg-[#F7F3EC] py-24 lg:py-32"
+      className="bg-[#F7F3EC] py-24 lg:py-32 border-b border-[#0D0F0D]/5"
       aria-label="About Stephanie"
     >
       <div className="max-w-7xl mx-auto px-6">
         <div
           ref={ref}
-          className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center"
+          className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center mb-16"
         >
           {/* ── LEFT — portrait card matching reference ── */}
           <motion.div
@@ -181,6 +191,34 @@ export default function Expertise() {
             </ul>
           </motion.div>
         </div>
+
+        {/* ── Subtle Tech & Tools Mastery Ribbon ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="pt-10 border-t border-[#0D0F0D]/8"
+        >
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex items-center gap-2">
+              <Layers size={14} className="text-[#C9A227]" />
+              <span className="text-[#0D0F0D]/40 text-[10px] tracking-[0.25em] uppercase font-bold">
+                Ecosystem Mastery
+              </span>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+              {techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="text-[#0D0F0D]/60 hover:text-[#173A2E] text-xs tracking-wide font-medium transition-colors cursor-default flex items-center gap-2"
+                >
+                  <span className="w-1 h-1 rounded-full bg-[#C9A227]/60" />
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
