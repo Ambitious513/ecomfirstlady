@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
   try {
@@ -63,13 +63,19 @@ export async function POST(req: NextRequest) {
       </div>
     `;
 
-    await resend.emails.send({
-      from: process.env.FROM_EMAIL ?? "noreply@ecomfirstlady.com",
-      to: process.env.TO_EMAIL ?? "stephanie@ecomfirstlady.com",
-      replyTo: email,
-      subject: `New Application: ${name} — ${servicesText}`,
-      html: emailHtml,
-    });
+    const apiKey = process.env.RESEND_API_KEY;
+    if (apiKey) {
+      const resend = new Resend(apiKey);
+      await resend.emails.send({
+        from: process.env.FROM_EMAIL ?? "noreply@ecomfirstlady.com",
+        to: process.env.TO_EMAIL ?? "stephanie@ecomfirstlady.com",
+        replyTo: email,
+        subject: `New Application: ${name} — ${servicesText}`,
+        html: emailHtml,
+      });
+    } else {
+      console.warn("RESEND_API_KEY is not set. Application received locally:", { name, email, servicesText });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
