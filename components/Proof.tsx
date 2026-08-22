@@ -67,23 +67,23 @@ function TestimonialCard({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: 0.1 + i * 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-white border border-[#0D0F0D]/8 p-7 flex flex-col gap-4 group hover:border-[#C9A227]/50 hover:shadow-md transition-all duration-300 relative overflow-hidden"
+      transition={{ delay: 0.08 + i * 0.1, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      className="bg-white border border-[#0D0F0D]/8 p-5 sm:p-7 flex flex-col gap-3.5 sm:gap-4 group hover:border-[#C9A227]/50 hover:shadow-md transition-all duration-300 relative overflow-hidden rounded-sm"
     >
       {/* Subtle gold corner accent */}
-      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#C9A227]/40 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-7 h-7 border-t-2 border-l-2 border-[#C9A227]/40 pointer-events-none" />
 
-      <Quote size={18} className="text-[#C9A227] flex-shrink-0" strokeWidth={1.5} />
+      <Quote size={17} className="text-[#C9A227] flex-shrink-0" strokeWidth={1.5} />
 
-      <p className="text-[#0D0F0D]/70 leading-[1.75] flex-1 italic" style={{ fontSize: "0.875rem" }}>
+      <p className="text-[#0D0F0D]/75 leading-[1.65] sm:leading-[1.75] flex-1 italic" style={{ fontSize: "0.875rem" }}>
         &ldquo;{quote}&rdquo;
       </p>
 
-      <div className="pt-4 border-t border-[#0D0F0D]/8">
+      <div className="pt-3.5 border-t border-[#0D0F0D]/8">
         <p className="text-[#0D0F0D] font-semibold" style={{ fontSize: "0.85rem" }}>{name}</p>
-        <p className="text-[#0D0F0D]/35 mt-0.5" style={{ fontSize: "0.75rem" }}>{detail}</p>
+        <p className="text-[#0D0F0D]/40 mt-0.5" style={{ fontSize: "0.75rem" }}>{detail}</p>
       </div>
     </motion.div>
   );
@@ -94,23 +94,23 @@ export default function Proof() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="results" className="bg-[#F7F3EC] py-24 lg:py-32" aria-label="Results and testimonials">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="results" className="bg-[#F7F3EC] py-14 sm:py-20 lg:py-28" aria-label="Results and testimonials">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-14"
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-10 sm:mb-14"
         >
-          <span className="block text-[#C9A227] text-[10px] tracking-[0.3em] uppercase font-medium mb-4">
+          <span className="block text-[#C9A227] text-[10px] tracking-[0.25em] sm:tracking-[0.3em] uppercase font-semibold mb-3 sm:mb-4">
             Results
           </span>
           <h2
-            className="text-[#0D0F0D] leading-[1.08]"
+            className="text-[#0D0F0D] leading-[1.1]"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(2rem, 3.8vw, 3.2rem)",
+              fontSize: "clamp(1.85rem, 3.8vw, 3.2rem)",
               fontWeight: 700,
               letterSpacing: "-0.025em",
             }}
@@ -122,7 +122,7 @@ export default function Proof() {
         </motion.div>
 
         {/* ── Key Metrics Strip ── */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 mb-10 sm:mb-12">
           {stats.map((stat, i) => {
             const Icon = stat.icon;
             return (
@@ -131,26 +131,26 @@ export default function Proof() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.05 + i * 0.08, duration: 0.5 }}
-                className="bg-white/80 border border-[#0D0F0D]/6 p-5 rounded-sm flex flex-col justify-between hover:border-[#C9A227]/40 transition-colors duration-200"
+                className="bg-white/90 border border-[#0D0F0D]/6 p-4 sm:p-5 rounded-sm flex flex-col justify-between hover:border-[#C9A227]/40 transition-colors duration-200"
               >
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
                   <span
                     className="text-[#0D0F0D] font-bold leading-none"
                     style={{
                       fontFamily: "var(--font-display)",
-                      fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)",
+                      fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)",
                       letterSpacing: "-0.02em",
                     }}
                   >
                     {stat.value}
                   </span>
-                  <Icon size={16} className="text-[#C9A227]" strokeWidth={1.75} />
+                  <Icon size={15} className="text-[#C9A227]" strokeWidth={1.75} />
                 </div>
                 <div>
-                  <p className="text-[#0D0F0D] font-semibold text-xs tracking-tight mb-1">
+                  <p className="text-[#0D0F0D] font-semibold text-[11px] sm:text-xs tracking-tight mb-0.5 sm:mb-1">
                     {stat.label}
                   </p>
-                  <p className="text-[#0D0F0D]/40 text-[11px] leading-relaxed">
+                  <p className="text-[#0D0F0D]/45 text-[10px] sm:text-[11px] leading-snug">
                     {stat.detail}
                   </p>
                 </div>
@@ -160,7 +160,7 @@ export default function Proof() {
         </div>
 
         {/* ── Testimonials Grid ── */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 auto-rows-fr">
           {testimonials.map((t, i) => (
             <TestimonialCard key={i} {...t} i={i} inView={inView} />
           ))}
@@ -169,8 +169,8 @@ export default function Proof() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="mt-8 text-[#0D0F0D]/30 text-center tracking-wide"
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className="mt-7 sm:mt-8 text-[#0D0F0D]/35 text-center tracking-wide"
           style={{ fontSize: "0.7rem" }}
         >
           Names withheld for client privacy. Quotes used with permission.

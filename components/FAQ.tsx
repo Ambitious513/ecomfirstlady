@@ -41,17 +41,17 @@ function FAQItem({ q, a, i }: { q: string; a: string; i: number }) {
       ref={ref}
       initial={{ opacity: 0, y: 12 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: i * 0.06, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ delay: i * 0.05, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       className="border-b border-[#0D0F0D]/10 last:border-0"
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between gap-6 py-5 text-left group"
+        className="w-full flex items-center justify-between gap-4 sm:gap-6 py-4 sm:py-5 text-left group"
         aria-expanded={open}
       >
         <span
-          className="text-[#0D0F0D] font-medium group-hover:text-[#173A2E] transition-colors duration-200"
-          style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", lineHeight: 1.5 }}
+          className="text-[#0D0F0D] font-semibold text-sm sm:text-[0.9rem] group-hover:text-[#173A2E] transition-colors duration-200"
+          style={{ fontFamily: "var(--font-body)", lineHeight: 1.45 }}
         >
           {q}
         </span>
@@ -66,11 +66,11 @@ function FAQItem({ q, a, i }: { q: string; a: string; i: number }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
             <p
-              className="text-[#0D0F0D]/55 leading-[1.75] pb-5 pr-8"
+              className="text-[#0D0F0D]/60 leading-[1.65] sm:leading-[1.75] pb-4 sm:pb-5 pr-4 sm:pr-8"
               style={{ fontSize: "0.875rem" }}
             >
               {a}
@@ -86,21 +86,21 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="bg-[#F7F3EC] py-24 lg:py-32"
+      className="bg-[#F7F3EC] py-14 sm:py-20 lg:py-28"
       aria-label="Frequently asked questions"
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-[1fr_2fr] gap-14 lg:gap-20">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6">
+        <div className="grid lg:grid-cols-[1fr_2fr] gap-8 sm:gap-12 lg:gap-20">
           {/* Left */}
           <div>
-            <span className="block text-[#C9A227] text-[10px] tracking-[0.3em] uppercase font-medium mb-4">
+            <span className="block text-[#C9A227] text-[10px] tracking-[0.25em] sm:tracking-[0.3em] uppercase font-semibold mb-3 sm:mb-4">
               FAQ
             </span>
             <h2
-              className="text-[#0D0F0D] leading-[1.08]"
+              className="text-[#0D0F0D] leading-[1.1]"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(2rem, 3.5vw, 3rem)",
+                fontSize: "clamp(1.85rem, 3.5vw, 3rem)",
                 fontWeight: 700,
                 letterSpacing: "-0.025em",
               }}

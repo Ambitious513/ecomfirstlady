@@ -21,18 +21,18 @@ const pains = [
 
 function PainCard({ label, body, i }: { label: string; body: string; i: number }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="border-l-2 border-[#C9A227] pl-5 py-1"
+      transition={{ delay: i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className="border-l-2 border-[#C9A227] pl-4 sm:pl-5 py-1"
     >
       <p
-        className="text-[#0D0F0D] font-semibold mb-1.5"
+        className="text-[#0D0F0D] font-semibold mb-1"
         style={{
           fontFamily: "var(--font-display)",
           fontSize: "clamp(1rem, 1.4vw, 1.15rem)",
@@ -41,7 +41,7 @@ function PainCard({ label, body, i }: { label: string; body: string; i: number }
       >
         {label}
       </p>
-      <p className="text-[#0D0F0D]/55 leading-[1.7]" style={{ fontSize: "0.875rem" }}>
+      <p className="text-[#0D0F0D]/55 leading-[1.65] sm:leading-[1.7]" style={{ fontSize: "0.875rem" }}>
         {body}
       </p>
     </motion.div>
@@ -50,31 +50,31 @@ function PainCard({ label, body, i }: { label: string; body: string; i: number }
 
 export default function Problem() {
   const headRef = useRef(null);
-  const headInView = useInView(headRef, { once: true, margin: "-80px" });
+  const headInView = useInView(headRef, { once: true, margin: "-60px" });
 
   return (
     <section
       id="problem"
-      className="bg-[#F7F3EC] py-24 lg:py-32"
+      className="bg-[#F7F3EC] py-14 sm:py-20 lg:py-28"
       aria-label="The problem"
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start">
           {/* Left — hook */}
           <motion.div
             ref={headRef}
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={headInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="block text-[#C9A227] text-[10px] tracking-[0.3em] uppercase font-medium mb-5">
+            <span className="block text-[#C9A227] text-[10px] tracking-[0.25em] sm:tracking-[0.3em] uppercase font-semibold mb-3 sm:mb-4">
               Sound familiar?
             </span>
             <h2
-              className="text-[#0D0F0D] leading-[1.08] mb-5"
+              className="text-[#0D0F0D] leading-[1.1] mb-4 sm:mb-5"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "clamp(2rem, 3.8vw, 3.2rem)",
+                fontSize: "clamp(1.85rem, 3.8vw, 3.2rem)",
                 fontWeight: 700,
                 letterSpacing: "-0.025em",
               }}
@@ -87,7 +87,7 @@ export default function Problem() {
                 <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-[#C9A227]" />
               </span>
             </h2>
-            <p className="text-[#0D0F0D]/55 leading-[1.75] max-w-xs" style={{ fontSize: "0.9rem" }}>
+            <p className="text-[#0D0F0D]/55 leading-[1.7] max-w-sm" style={{ fontSize: "0.9rem" }}>
               Most Shopify store owners aren&apos;t failing because they&apos;re
               not working hard enough. They&apos;re failing because the store
               itself isn&apos;t set up to convert. That&apos;s a fixable problem.
@@ -95,7 +95,7 @@ export default function Problem() {
           </motion.div>
 
           {/* Right — pain cards */}
-          <div className="flex flex-col gap-7 pt-2">
+          <div className="flex flex-col gap-6 sm:gap-7 pt-1 lg:pt-2">
             {pains.map((p, i) => (
               <PainCard key={p.label} {...p} i={i} />
             ))}
