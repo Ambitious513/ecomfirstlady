@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -31,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Analytics placeholders — wire in before launch */}
+        {/* GA4 placeholder */}
         {process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID && (
           <>
             <script
@@ -46,7 +48,11 @@ export default function RootLayout({
           </>
         )}
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
