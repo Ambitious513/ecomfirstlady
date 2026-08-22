@@ -3,7 +3,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
-// Dynamically determine site base URL for Vercel previews and production
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
   ? process.env.NEXT_PUBLIC_SITE_URL
   : process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -25,20 +24,11 @@ export const metadata: Metadata = {
     siteName: "Ecom Firstlady",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/og-card.svg",
-        width: 1200,
-        height: 630,
-        alt: "Ecom Firstlady — Shopify Growth Specialist",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ecom Firstlady — Shopify Growth Specialist",
     description: "Your Shopify store, built to actually sell.",
-    images: ["/og-card.svg"],
   },
   icons: {
     icon: "/icon.svg",
