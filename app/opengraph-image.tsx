@@ -12,14 +12,15 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
-  // Read portrait as base64 for reliable rendering
   let portraitBase64 = "";
   try {
     const imagePath = path.join(process.cwd(), "public", "hero-portrait.png");
-    const imageBuffer = fs.readFileSync(imagePath);
-    portraitBase64 = `data:image/png;base64,${imageBuffer.toString("base64")}`;
+    if (fs.existsSync(imagePath)) {
+      const imageBuffer = fs.readFileSync(imagePath);
+      portraitBase64 = `data:image/png;base64,${imageBuffer.toString("base64")}`;
+    }
   } catch (e) {
-    console.error("Error loading portrait for OG image:", e);
+    console.error("OG Image loading fallback:", e);
   }
 
   return new ImageResponse(
@@ -34,7 +35,7 @@ export default async function Image() {
           justifyContent: "space-between",
           backgroundColor: "#0D0F0D",
           backgroundImage:
-            "radial-gradient(circle at 85% 30%, rgba(23, 58, 46, 0.8) 0%, transparent 60%)",
+            "radial-gradient(circle at 85% 30%, rgba(23, 58, 46, 0.95) 0%, #0D0F0D 65%)",
           padding: "60px 70px",
           fontFamily: "sans-serif",
           position: "relative",
@@ -48,7 +49,7 @@ export default async function Image() {
             left: "24px",
             right: "24px",
             bottom: "24px",
-            border: "1px solid rgba(201, 162, 39, 0.25)",
+            border: "1px solid rgba(201, 162, 39, 0.35)",
             borderRadius: "20px",
             pointerEvents: "none",
           }}
@@ -60,7 +61,7 @@ export default async function Image() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            width: "600px",
+            width: "620px",
           }}
         >
           {/* Eyebrow badge */}
@@ -96,7 +97,7 @@ export default async function Image() {
           <h1
             style={{
               color: "#FFFFFF",
-              fontSize: "52px",
+              fontSize: "50px",
               lineHeight: 1.12,
               fontWeight: 800,
               margin: 0,
@@ -121,7 +122,7 @@ export default async function Image() {
             A decade of real operator experience. Store Builds · CRO · SEO
           </p>
 
-          {/* Brand/Founder Credit */}
+          {/* Brand Pill */}
           <div
             style={{
               display: "flex",
@@ -134,7 +135,7 @@ export default async function Image() {
                 backgroundColor: "#173A2E",
                 padding: "8px 18px",
                 borderRadius: "6px",
-                border: "1px solid rgba(201, 162, 39, 0.3)",
+                border: "1px solid rgba(201, 162, 39, 0.4)",
                 display: "flex",
                 alignItems: "center",
                 gap: "8px",
@@ -151,8 +152,8 @@ export default async function Image() {
               <span
                 style={{
                   color: "#FFFFFF",
-                  fontSize: "14px",
-                  fontWeight: 600,
+                  fontSize: "13px",
+                  fontWeight: 700,
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
                 }}
@@ -163,21 +164,25 @@ export default async function Image() {
           </div>
         </div>
 
-        {/* Right Portrait Frame */}
-        {portraitBase64 ? (
-          <div
-            style={{
-              width: "380px",
-              height: "470px",
-              borderRadius: "24px",
-              overflow: "hidden",
-              border: "1px solid rgba(201, 162, 39, 0.4)",
-              boxShadow: "0 24px 60px rgba(0, 0, 0, 0.6)",
-              display: "flex",
-              position: "relative",
-            }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* Right Frame — with Portrait or Monogram */}
+        <div
+          style={{
+            width: "360px",
+            height: "460px",
+            borderRadius: "20px",
+            overflow: "hidden",
+            border: "1px solid rgba(201, 162, 39, 0.4)",
+            boxShadow: "0 24px 60px rgba(0, 0, 0, 0.7)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#173A2E",
+            position: "relative",
+          }}
+        >
+          {portraitBase64 ? (
+            /* eslint-disable-next-line @next/next/no-img-element */
             <img
               src={portraitBase64}
               alt="Stephanie"
@@ -188,8 +193,43 @@ export default async function Image() {
                 objectPosition: "center top",
               }}
             />
-          </div>
-        ) : null}
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+                height: "100%",
+                backgroundColor: "#0D0F0D",
+              }}
+            >
+              <span
+                style={{
+                  color: "#C9A227",
+                  fontSize: "90px",
+                  fontWeight: 700,
+                  fontFamily: "serif",
+                }}
+              >
+                EF
+              </span>
+              <span
+                style={{
+                  color: "#FFFFFF",
+                  fontSize: "12px",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  opacity: 0.8,
+                  marginTop: "10px",
+                }}
+              >
+                A Decade of Shopify
+              </span>
+            </div>
+          )}
+        </div>
       </div>
     ),
     {

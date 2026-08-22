@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#173A2E"/>
+      <stop offset="60%" stop-color="#0D0F0D"/>
+      <stop offset="100%" stop-color="#050605"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#173A2E" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0D0F0D" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F3D87A"/>
+      <stop offset="50%" stop-color="#C9A227"/>
+      <stop offset="100%" stop-color="#9E7B15"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Outer Luxury Gold Border -->
+  <rect x="24" y="24" width="1152" height="582" rx="20" fill="none" stroke="url(#gold)" stroke-width="1.5" stroke-opacity="0.3"/>
+
+  <!-- Left Content -->
+  <!-- Eyebrow -->
+  <line x1="70" y1="120" x2="100" y2="120" stroke="#C9A227" stroke-width="2"/>
+  <text x="115" y="125" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#C9A227" letter-spacing="4">SHOPIFY GROWTH SPECIALIST</text>
+
+  <!-- Headline -->
+  <text x="70" y="210" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="700" fill="#FFFFFF" letter-spacing="-1">Your Shopify store,</text>
+  <text x="70" y="280" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="700" fill="#C9A227" letter-spacing="-1">built <tspan fill="#FFFFFF">to actually sell.</tspan></text>
+
+  <!-- Subtitle -->
+  <text x="70" y="360" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="400" fill="rgba(255,255,255,0.65)">A decade of real Shopify operator experience.</text>
+  <text x="70" y="395" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="500" fill="rgba(201,162,39,0.9)">Store Builds · Conversion Optimization · Shopify SEO</text>
+
+  <!-- Badge Pill -->
+  <rect x="70" y="470" width="340" height="52" rx="8" fill="#173A2E" stroke="url(#gold)" stroke-width="1" stroke-opacity="0.4"/>
+  <circle cx="96" cy="496" r="4" fill="#C9A227"/>
+  <text x="114" y="502" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" letter-spacing="2">ECOM FIRSTLADY · STEPHANIE</text>
+
+  <!-- Right Decorative Frame with Portrait Placeholder & Monogram -->
+  <rect x="760" y="75" width="370" height="480" rx="24" fill="#173A2E" stroke="url(#gold)" stroke-width="1.5" stroke-opacity="0.4"/>
+  <rect x="780" y="95" width="330" height="440" rx="16" fill="#0D0F0D" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  
+  <!-- Stylized Star in Frame -->
+  <path d="M945 220 L952 240 L972 242 L956 256 L961 276 L945 264 L929 276 L934 256 L918 242 L938 240 Z" fill="url(#gold)"/>
+  <text x="945" y="350" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="120" font-weight="700" fill="url(#gold)" letter-spacing="-2">EF</text>
+  <text x="945" y="400" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="3" opacity="0.8">A DECADE OF SHOPIFY</text>
+</svg>
