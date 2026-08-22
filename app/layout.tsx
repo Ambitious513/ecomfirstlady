@@ -22,6 +22,10 @@ export const metadata: Metadata = {
     description: "Your Shopify store, built to actually sell.",
     images: ["/hero-portrait.png"],
   },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.svg",
+  },
   metadataBase: new URL("https://ecomfirstlady.com"),
 };
 

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#173A2E"/>
+      <stop offset="100%" stop-color="#0D0F0D"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3D87A"/>
+      <stop offset="50%" stop-color="#C9A227"/>
+      <stop offset="100%" stop-color="#9E7B15"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded Base Background -->
+  <rect width="512" height="512" rx="120" fill="url(#bgGrad)"/>
+  <!-- Gold Inset Border -->
+  <rect x="28" y="28" width="456" height="456" rx="96" fill="none" stroke="url(#goldGrad)" stroke-width="10" stroke-opacity="0.45"/>
+  <!-- Star Accent -->
+  <path d="M256 95 L267 125 L298 128 L273 148 L281 178 L256 160 L231 178 L239 148 L214 128 L245 125 Z" fill="url(#goldGrad)"/>
+  <!-- Monogram EF -->
+  <text x="50%" y="67%" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="210" font-weight="700" fill="url(#goldGrad)" letter-spacing="-4">EF</text>
+  <!-- Accent Base Dot -->
+  <circle cx="256" cy="405" r="7" fill="url(#goldGrad)"/>
+</svg>
